@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="loveApp">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Nossa História | Meu Amor</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body ng-controller="LoveController as vm">
+
+	<!-- Fundo Animado Romântico -->
+	<div class="stars" aria-hidden="true"></div>
+	<div class="twinkling" aria-hidden="true"></div>
+
+	<!-- Menu de navegação superior (Opcional, fixo) -->
+	<header class="navbar">
+		<div class="brand"><i class="fa-solid fa-heart-pulse"></i> Nosso Amor</div>
+		<nav>
+			<a href="#home">Início</a>
+			<a href="#historia">Nossa História</a>
+			<a href="#galeria">Momentos</a>
+		</nav>
+	</header>
+
+	<main class="container">
+		
+		<!-- Secão Inicial (Cover Frontal) -->
+		<section id="home" class="cover-section">
+			<div class="glass-box text-center">
+				<h1 class="main-title">Cada batida do meu coração chama pelo seu nome</h1>
+				<p class="subtitle">Uma página para eternizar nossa história e meu amor por você.</p>
+				
+				<div class="timer-box">
+					<p class="timer-label">Juntos há</p>
+					<div class="timer-display">
+						<div class="time-block">
+							<span class="number">{{ vm.timeTogether.days }}</span>
+							<span class="label">Dias</span>
+						</div>
+						<div class="time-separator">:</div>
+						<div class="time-block">
+							<span class="number">{{ vm.timeTogether.hours }}</span>
+							<span class="label">Horas</span>
+						</div>
+						<div class="time-block">
+							<span class="number">{{ vm.timeTogether.minutes }}</span>
+							<span class="label">Minutos</span>
+						</div>
+						<div class="time-block">
+							<span class="number">{{ vm.timeTogether.seconds }}</span>
+							<span class="label">Segundos</span>
+						</div>
+					</div>
+				</div>
+
+				<button class="love-button" ng-click="vm.openSurpriseModal()">
+					<i class="fa-solid fa-envelope-open-heart"></i> Abrir Cartinha Pessoal
+				</button>
+			</div>
+		</section>
+
+		<!-- Sobre Ela e Cavalos -->
+		<section id="historia" class="story-section content-block left-align">
+			<div class="text-content">
+				<h2 class="section-title">Nossa história</h2>
+				<p class="paragraph">
+                    Desde o momento em que te vi, soube que havia algo mágico entre nós.
+                    Quando começamos a conversar já sabia que você era a pessoa mais incrível que eu já tinha conhecido.
+                    <hr><br>
+                    Você é a loira praiana do rosto vermelho queimado, que enrola seu cabelo longo e fica do meu lado, mesmo nos dias mais difíceis.
+                    <br><br>
+                    Também é a amazona mais linda do mundo, que não tem medo de galopar pelos campos da vida comigo, enfrentando qualquer tempestade que possa surgir.
+                    <br><br>
+                    <b>Eu te amo por tudo isso e por muito mais.</b><br><br>
+                </p>
+				<ul class="romantic-list">
+					<li><i class="fa-solid fa-star-shooting"></i> Amor da minha vida, minha conquista</li>
+					<li><i class="fa-solid fa-star-shooting"></i> Você é uma ilha, você é uma ilha</li> 
+					<li><i class="fa-solid fa-star-shooting"></i> Onde as ondas quebram perto, desse mar azul eterno</li> 
+					<li><i class="fa-solid fa-star-shooting"></i> Teu sol loiro me ilumina, você é minha mina.</li> 
+				</ul>
+			</div>
+			<div class="image-content decoration-image">
+				<img src="image/Formatura.jpg" alt="A mulher mais incrível do mundo" class="profile-img">
+			</div>
+		</section>
+
+		<!-- Galeria Elegante -->
+		<section id="galeria" class="gallery-section content-block right-align">
+			<div class="text-content">
+				<h2 class="section-title">Fragmentos de Nós</h2>
+				<p class="paragraph fade-text">
+					São nos pequenos detalhes e nos instantes mais simples que nosso amor se constrói dia a dia.
+				</p>
+			</div>
+			
+			<div class="polaroid-gallery">
+				<!-- Usando layout tipo polaroid empilhado/rotacionado -->
+				<div class="polaroid" ng-repeat="photo in vm.polaroids" ng-style="photo.style">
+					<img ng-src="{{photo.url}}" alt="Nossa lembrança">
+					<div class="polaroid-text">{{photo.caption}}</div>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="love-footer">
+		Para meu único e eterno amor. Desenvolvido com todo meu coração <i class="fa-solid fa-heart fa-beat"></i>
+	</footer>
+
+	<!-- Modal Cartinha -->
+	<div class="modal-overlay" ng-class="{'show': vm.isModalOpen}" ng-click="vm.closeSurpriseModal()">
+		<div class="modal-content" ng-click="$event.stopPropagation()">
+			<button class="close-modal" ng-click="vm.closeSurpriseModal()"><i class="fa-solid fa-xmark"></i></button>
+			<h3>Ellen,</h3>
+			<p class="letter-text">
+				Não há palavras suficientes para tentar descrever a alegria e a paz que sinto desde que nossos mundos se cruzaram. 
+				Você é meu amuleto, minha coragem, minha calmaria e meu furacão.  
+				<br><br>
+				Obrigado por me escolher todos os dias. Eu viveria mil vidas se em todas eu pudesse encontrar você de novo.
+				<br><br>
+				Eu te amo, de Janeiro a Janeiro.
+			</p>
+			<div class="signature">Com amor,<br>O homem mais sortudo do mundo.</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>
