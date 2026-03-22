@@ -36,27 +36,27 @@
       // Galeria estilo Polaroid
       vm.polaroids = [
         {
-          url: "../image/Natal.jpg",
+          url: "image/Natal.jpg",
           caption: "Nosso primeiro natal",
           style: { "transform": "rotate(-5deg)", "z-index": 1, "margin-top": "20px" }
         },
         {
-          url: "../image/PistaKart.jpg",
+          url: "image/PistaKart.jpg",
           caption: "Nosso primeiro role juntos",
           style: { "transform": "rotate(3deg)", "z-index": 2, "margin-top": "-10px" }
         },
         {
-          url: "../image/PedidoNamoro.jpg",
+          url: "image/PedidoNamoro.jpg",
           caption: "Para sempre nós",
           style: { "transform": "rotate(-2deg)", "z-index": 3, "margin-top": "15px" }
         },
         {
-          url: "../image/PorDoSol.jpg",
+          url: "image/PorDoSol.jpg",
           caption: "Um dos nossos momentos mais divertidos",
           style: { "transform": "rotate(-2deg)", "z-index": 3, "margin-top": "15px" }
         },
         {
-          url: "../image/PedidoCavalo.jpg",
+          url: "image/PedidoCavalo.jpg",
           caption: "Pedido mais que especial\n(Cavalo)",
           style: { "transform": "rotate(-5deg)", "z-index": 1, "margin-top": "20px" }
         },
